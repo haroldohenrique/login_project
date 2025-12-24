@@ -38,8 +38,4 @@ public class EnderecoMapper {
                 .complemento(endereco.getComplemento())
                 .build();
     }
-
-//     Endereco endereco = enderecoMapper.toEndereco(userCreateDTO.getEndereco());
-// userEntity.setEndereco(endereco);
-
 }
