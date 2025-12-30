@@ -8,16 +8,32 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import haroldohenrique.com.login_project.domain.exceptions.DuplicateResourceException;
+import haroldohenrique.com.login_project.domain.exceptions.InvalidCredentialsException;
+import haroldohenrique.com.login_project.domain.exceptions.NotFoundException;
 
+@ControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(DuplicateResourceException.class)
     public ResponseEntity<?> handleDuplicateResourceException(DuplicateResourceException ex) {
         var body = buildErrorBody(HttpStatus.CONFLICT, "Duplicate Resource", ex.getMessage());
         return ResponseEntity.status(HttpStatus.CONFLICT).body(body);
+    }
+
+    @ExceptionHandler(InvalidCredentialsException.class)
+    public ResponseEntity<?> handleInvalidCredentialsException(InvalidCredentialsException ex) {
+        var body = buildErrorBody(HttpStatus.UNAUTHORIZED, "Invalid Credentials", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(body);
+    }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<?> handleNotFoundException(NotFoundException ex) {
+        var body = buildErrorBody(HttpStatus.NOT_FOUND, "Not Found", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(body);
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
