@@ -2,6 +2,7 @@ package haroldohenrique.com.login_project.application.dtos;
 
 import org.hibernate.validator.constraints.Length;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.Setter;
@@ -10,13 +11,12 @@ import lombok.Setter;
 @Setter
 public class AuthUserRequestDTO {
 
-    //TODO aqui vai o swagger também
 
-    // @Schema(example = "email@email.com", requiredMode = Schema.RequiredMode.REQUIRED)
     @Email(message = "O campo [email] deve conter um e-mail válido.")
+    @Schema(example = "fulano@gmail.com", requiredMode = Schema.RequiredMode.REQUIRED)
     private String email;
 
-    // @Schema(example = "123456789", requiredMode = Schema.RequiredMode.REQUIRED)
     @Length(min = 6, max = 25, message = "O campo [password] deve conter entre 6 e 25 digitos")
+    @Schema(example = "123456789", requiredMode = Schema.RequiredMode.REQUIRED)
     private String password;
 }
