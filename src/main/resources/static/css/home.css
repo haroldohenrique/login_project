@@ -1,0 +1,112 @@
+.bodyContainer {
+    min-height: 100dvh;
+    background-color: rgb(255, 255, 255);
+    /* background: #2a3f9b;
+    background: linear-gradient(60deg, rgba(42, 63, 155, 1) 0%, rgba(142, 81, 255, 1) 44%, rgba(83, 237, 219, 1) 100%); */
+}
+
+.mainContainer {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 60px;
+    background-image: url(../images/main-background-image.jpg);
+    background-size: cover;
+    background-position: center;
+
+    & h2 {
+        color: var(--roxo-fraco);
+        text-shadow: 1px 1px 4px #000;
+    }
+
+    & h1 {
+        font-size: 10vh;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000;
+    }
+
+    & p {
+        color: var(--branco);
+    }
+
+    & span {
+        margin-top: 10px;
+        color: var(--branco);
+
+    }
+}
+
+.mainButtonContainer {
+    margin-top: 15px;
+    display: flex;
+    gap: 2vw;
+
+    & button {
+        width: 10vw;
+        height: 7vh;
+        background-color: var(--roxo-fraco);
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+        border-radius: 2px;
+        text-decoration: none;
+        color: #000;
+    }
+
+    & button:hover {
+        background-color: #7040ca;
+    }
+}
+
+.mainSecondContainer {
+    margin: 10vh 0 10vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainTextAbout {
+    width: 30vw;
+
+    & h2 {
+        font-size: 7vh;
+        text-align: center;
+    }
+
+    & p {
+        margin-top: 3vh;
+    }
+}
+
+
+.objectivesContainer {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: 280px 280px;
+    grid-template-rows: 350px 350px;
+}
+
+.objectives {
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    background-color: var(--roxo-fraco);
+    clip-path: polygon(0% 0%, 70% 0%, 100% 30%, 100% 100%, 0% 100%);
+    height: 50vh;
+    border-radius: 10px 80px 10px 10px;
+
+    & img {
+        padding: 10px;
+        border-radius: 50%;
+        background-color: #fff;
+        width: 4vw;
+        height: 8vh;
+    }
+
+    & p {
+        text-align: start;
+    }
+}

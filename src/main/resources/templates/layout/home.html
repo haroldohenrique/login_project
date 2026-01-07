@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/components.css}">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="bodyContainer">
+    <header class="headerContainer">
+        <div class="logoContainer">
+            <img th:src="@{/images/header-logo.jpg}" alt="nevesLogo">
+        </div>
+        <nav class="navContainer">
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+            <a href="/register">Crie sua conta</a>
+        </nav>
+    </header>
+    <main class="main">
+        <div class="mainContainer">
+            <h2>Freelancer ou CLT/PJ</h2>
+            <h1>Neves </br>
+                Desenvolvedor back-end & frond-end</h1>
+            <p>
+                <strong>Desenvolvedor backend com foco em Java e Spring Boot</strong>, apaixonado por construir APIs
+                seguras, organizadas e escaláveis.
+                <br>
+                Neste projeto, você terá um breve acesso ao meu conhecimento por meio de uma página de login com
+                autenticação e gerenciamento de rotas.
+            </p>
+            <span>Faça o login ou crie sua conta para iniciar essa experiência.</span>
+            <section class="mainButtonContainer">
+                <a href="/login"><button>FAÇA O LOGIN </button></a>
+                <a href="/register"><button>COMECE AGORA</button></a>
+            </section>
+        </div>
+        <div class="mainSecondContainer">
+            <div class="mainTextAbout">
+                <h2>O que eu entrego</h2>
+                <p>Entrego soluções completas, do back-end ao front-end, com foco em organização, segurança e
+                    escalabilidade. Desenvolvo APIs bem estruturadas, com regras de negócio claras, autenticação segura
+                    e documentação completa, além de interfaces simples e funcionais que realmente resolvem o problema
+                    do usuário.
+                </p>
+            </div>
+            <section class="objectivesContainer">
+                <div class="objectives">
+                    <img th:src="@{/images/home-icon-strategy.png}" alt="icon strategy">
+                    <h3>Estratégia & Pesquisa</h3>
+                    <p>Planejo a solução antes de codar, entendendo o problema, as regras de negócio e a melhor
+                        arquitetura para garantir desempenho, segurança e facilidade de manutenção.</p>
+                </div>
+
+                <div class="objectives">
+                    <img th:src="@{/images/home-icon-brush.png}" alt="icon development">
+                    <h3>Design & Desenvolvimento</h3>
+                    <p>Desenvolvo interfaces claras e funcionais integradas a um back-end sólido, com APIs bem
+                        definidas, validações corretas e fluxos pensados para o usuário final.</p>
+
+                </div>
+
+                <div class="objectives">
+                    <img th:src="@{/images/home-icon-diamond.png}" alt="icon management">
+                    <h3>Gestão & Organização</h3>
+                    <p>Organizo o projeto com código limpo, versionamento, separação de responsabilidades e estrutura
+                        preparada para crescer sem virar um sistema difícil de manter.</p>
+
+                </div>
+
+                <div class="objectives">
+                    <img th:src="@{/images/home-icon-checked.png}" alt="icon analysis">
+                    <h3>Análise & Banco de Dados</h3>
+                    <p>Modelo e implemento bancos de dados de forma eficiente, garantindo integridade, performance e
+                        segurança das informações ao longo do tempo.</p>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <footer class="footerContainer">
+        <div class="footerDiv">
+            <img th:src="@{/images/icon-mail.png}" class="footerImg" alt="icon mail">
+            <p>haroldohenriquedasneves@gmail.com</p>
+        </div>
+        <div class="footerDiv">
+            <img th:src="@{/images/icon-telefone.png}" class="footerImg" alt="icon telefone">
+            <p>+55 48 9 98314066</p>
+        </div>
+        <div class="footerDiv">
+            <img th:src="@{/images/icon-relogio.png}" class="footerImg" alt="icon relogio">
+            <p>Open Hours: Seg - Dom 13:00 - 23:00</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

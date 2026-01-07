@@ -1,0 +1,12 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", serif;
+}
+
+:root{
+    --roxo-fraco: #8e51ff;
+    --branco: #fff;
+    --preto: #000;
+}
