@@ -25,14 +25,29 @@ public class SecurityConfig {
             "/swagger-resources/**"
     };
 
+    private static final String[] VIEW_LIST = {
+            "/",
+            "/login",
+            "/register",
+            "/index"
+    };
+
+    private static final String[] STATIC_LIST = {
+            "/css/**",
+            "/js/**",
+            "/images/**",
+            "/webjars/**"
+    };
+
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> {
                     auth.requestMatchers(SWAGGER_LIST).permitAll()
-                            .requestMatchers("/users/register").permitAll()
-                            .requestMatchers("/users/login").permitAll()
+                            .requestMatchers(VIEW_LIST).permitAll()
+                            .requestMatchers(STATIC_LIST).permitAll()
+                            .requestMatchers("/api/users/register", "/api/users/login").permitAll()
                             .anyRequest().authenticated();
                 }).addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
@@ -43,6 +58,3 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 }
-
-//TODO aqui
-//fazer o teste unitário já conforme vou fazendo o controller
