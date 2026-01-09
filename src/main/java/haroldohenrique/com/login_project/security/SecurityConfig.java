@@ -17,44 +17,47 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    private final SecurityFilter securityFilter;
+        private final SecurityFilter securityFilter;
 
-    private static final String[] SWAGGER_LIST = {
-            "/swagger-ui/**",
-            "/v3/api-docs/**",
-            "/swagger-resources/**"
-    };
+        private static final String[] SWAGGER_LIST = {
+                        "/swagger-ui/**",
+                        "/v3/api-docs/**",
+                        "/swagger-resources/**"
+        };
 
-    private static final String[] VIEW_LIST = {
-            "/",
-            "/login",
-            "/register",
-            "/index"
-    };
+        private static final String[] VIEW_LIST = {
+                        "/",
+                        "/login",
+                        "/register",
+                        "/index"
+        };
 
-    private static final String[] STATIC_LIST = {
-            "/css/**",
-            "/js/**",
-            "/images/**",
-            "/webjars/**"
-    };
+        private static final String[] STATIC_LIST = {
+                        "/css/**",
+                        "/js/**",
+                        "/images/**",
+                        "/webjars/**"
+        };
 
-    @Bean
-    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.csrf(csrf -> csrf.disable())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers(SWAGGER_LIST).permitAll()
-                            .requestMatchers(VIEW_LIST).permitAll()
-                            .requestMatchers(STATIC_LIST).permitAll()
-                            .requestMatchers("/api/users/register", "/api/users/login").permitAll()
-                            .anyRequest().authenticated();
-                }).addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
-        return http.build();
-    }
+        @Bean
+        SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+                http
+                                .csrf(csrf -> csrf.disable())
+                                .sessionManagement(session -> session
+                                                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
+                                .authorizeHttpRequests(auth -> auth
+                                                .requestMatchers(SWAGGER_LIST).permitAll()
+                                                .requestMatchers(VIEW_LIST).permitAll()
+                                                .requestMatchers(STATIC_LIST).permitAll()
+                                                .requestMatchers("/api/users/register", "/api/users/login").permitAll()
+                                                .anyRequest().authenticated())
+                                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+                return http.build();
+        }
+
+        @Bean
+        PasswordEncoder passwordEncoder() {
+                return new BCryptPasswordEncoder();
+        }
 }

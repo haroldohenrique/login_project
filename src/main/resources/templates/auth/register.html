@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/base.css}">
+    <link rel="stylesheet" th:href="@{/css/components.css}">
+    <link rel="stylesheet" th:href="@{/css/auth.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <title>Register</title>
+</head>
+
+<body class="pageWrapper">
+    <header class="headerContainer">
+        <div class="logoContainer">
+            <img th:src="@{/images/header-logo.jpg}" alt="nevesLogo">
+        </div>
+        <nav class="navContainer">
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+            <a href="/register">Criar conta</a>
+        </nav>
+    </header>
+
+
+
+
+
+
+
+
+    <main class="mainContainer">
+        <form action="" th:action="@{/register}" method="post" th:object="${userCreateDTO}" class="formContainer">
+
+            <!-- NOME -->
+            <div class="inputContainer">
+                <input th:field="*{name}" placeholder="Nome" type="text" name="" id="">
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="errorInput"></p>
+            </div>
+
+            <!-- EMAIL -->
+            <div class="inputContainer">
+                <input th:field="*{email}" placeholder="Email" type="email" name="" id="">
+                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="errorInput"></p>
+            </div>
+
+            <!-- TELEFONE -->
+            <div class="inputContainer">
+                <input th:field="*{telephone}" placeholder="Telefone" type="text" name="" id="">
+                <p th:if="${#fields.hasErrors('telephone')}" th:errors="*{telephone}" class="errorInput"></p>
+            </div>
+
+            <!-- SENHA -->
+            <div class="inputContainer">
+                <input th:field="*{password}" placeholder="Password" type="password" name="" id="">
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="errorInput"></p>
+            </div>
+
+            <!-- ENDEREÇO -->
+            <div class="inputContainer">
+                <div class="addressContainer">
+                    <input th:field="*{endereco.rua}" placeholder="Rua" type="text">
+                    <p th:if="${#fields.hasErrors('endereco.rua')}" th:errors="*{endereco.rua}" class="errorInput"></p>
+                </div>
+
+                <div class="addressContainer">
+                    <input th:field="*{endereco.numero}" placeholder="Número" type="text">
+                    <p th:if="${#fields.hasErrors('endereco.numero')}" th:errors="*{endereco.numero}"
+                        class="errorInput"></p>
+                </div>
+
+                <div class="addressContainer">
+                    <input th:field="*{endereco.bairro}" placeholder="Bairro" type="text">
+                    <p th:if="${#fields.hasErrors('endereco.bairro')}" th:errors="*{endereco.bairro}"
+                        class="errorInput"></p>
+                </div>
+
+                <div class="addressContainer">
+                    <input th:field="*{endereco.cidade}" placeholder="Cidade" type="text">
+                    <p th:if="${#fields.hasErrors('endereco.cidade')}" th:errors="*{endereco.cidade}"
+                        class="errorInput"></p>
+                </div>
+
+                <div class="addressContainer">
+                    <input th:field="*{endereco.estado}" placeholder="Estado (UF)" type="text">
+                    <p th:if="${#fields.hasErrors('endereco.estado')}" th:errors="*{endereco.estado}"
+                        class="errorInput"></p>
+                </div>
+
+                <div class="addressContainer">
+                    <input th:field="*{endereco.cep}" placeholder="CEP" type="text">
+                    <p th:if="${#fields.hasErrors('endereco.cep')}" th:errors="*{endereco.cep}" class="errorInput"></p>
+                </div>
+
+                <div class="addressContainer">
+                    <input th:field="*{endereco.complemento}" placeholder="Complemento" type="text">
+                </div>
+
+            </div>
+            <button type="submit" class="submitButton">
+                Criar conta
+            </button>
+        </form>
+    </main>
+
+
+
+
+
+
+
+
+
+
+    <footer class="footerContainer">
+        <div class="footerDiv">
+            <img th:src="@{/images/icon-mail.png}" class="footerImg" alt="icon mail">
+            <p>haroldohenriquedasneves@gmail.com</p>
+        </div>
+        <div class="footerDiv">
+            <img th:src="@{/images/icon-telefone.png}" class="footerImg" alt="icon telefone">
+            <p>+55 48 9 98314066</p>
+        </div>
+        <div class="footerDiv">
+            <img th:src="@{/images/icon-relogio.png}" class="footerImg" alt="icon relogio">
+            <p>Open Hours: Seg - Dom 13:00 - 23:00</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

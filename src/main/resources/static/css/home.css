@@ -1,8 +1,6 @@
-.bodyContainer {
+.main {
     min-height: 100dvh;
     background-color: rgb(255, 255, 255);
-    /* background: #2a3f9b;
-    background: linear-gradient(60deg, rgba(42, 63, 155, 1) 0%, rgba(142, 81, 255, 1) 44%, rgba(83, 237, 219, 1) 100%); */
 }
 
 .mainContainer {
